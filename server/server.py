@@ -31,13 +31,16 @@ def getServerConfiguration():
 def startTheServerLoop(configData):
     #Create the socket object
     serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    host = socket.gethostname()
+    host = "127.0.0.1" #socket.gethostname()
     port = int(configData['port'])
     serverSocket.bind((host, port))
 
     #Listen to incoming connection requests
     serverSocket.listen(5)
 
+    print ("Server IP %s", str(host))
+    print ("Server port %s", configData['port'])
+    
     while True:
         #Establish a connection 
         clientSocket, addr = serverSocket.accept()
