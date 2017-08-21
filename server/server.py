@@ -1,4 +1,9 @@
 import socket
+import json
+
+with open("config.json") as json_data:
+    config_data = json.load(json_data)
+    print(config_data['port'])
 
 #Create the socket object
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
